@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  payment-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000" # پورت سرویس پرداخت
+    depends_on:
+      - rabbitmq
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/Payment-Service
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672" # پورت اصلی RabbitMQ
+      - "15672:15672" # رابط کاربری RabbitMQ
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017" # پورت MongoDB
+
+volumes:
+  mongodb-data:

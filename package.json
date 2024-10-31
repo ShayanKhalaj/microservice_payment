@@ -1,0 +1,26 @@
+{
+  "name": "payment-service",
+  "version": "1.0.0",
+  "description": "this is payment service",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -w . -e js,json --exec node ./src/server.js",
+    "start": "node src/server.js"
+  },
+  "type": "module",
+  "author": "Shayan Khalaj",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.4",
+    "axios": "^1.7.7",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "mongoose": "^8.6.1",
+    "nodemon": "^3.1.4",
+    "rate-limit": "^0.1.1"
+  }
+}
